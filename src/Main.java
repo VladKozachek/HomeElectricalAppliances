@@ -18,6 +18,7 @@ public class Main {
         controlllerElectricalAppliances.addElectricalAppliance(washer);
         controlllerElectricalAppliances.addElectricalAppliance(vacuumCleaner);
         controlllerElectricalAppliances.sort();
+        controlllerElectricalAppliances.search(100,1900);
         controlllerElectricalAppliances.show();
 
     }

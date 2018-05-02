@@ -10,6 +10,9 @@ import java.util.Comparator;
 public class ControlllerElectricalAppliances {
     private ElectricalAppliance electricalAppliance;
     private View view = new View();
+    private int min;
+    private int max;
+
     ArrayList<ElectricalAppliance> listElectricalApplianceAtHome =new ArrayList<>();
 
     public void addElectricalAppliance (ElectricalAppliance electricalAppliance){  //добавляем приборы в квартиру
@@ -31,9 +34,28 @@ public class ControlllerElectricalAppliances {
         });
     }
 
-    public void show() {
-        view.showElectrikalAppliance(listElectricalApplianceAtHome);
+    public ArrayList<ElectricalAppliance> search(int min,int max){ //поиск прибора в квартире, соответствующий заданному диапазону параметров
+     this.min=min;
+     this.max=max;
+        ArrayList<ElectricalAppliance> tempList=new ArrayList<>();
+        for (ElectricalAppliance item:listElectricalApplianceAtHome){
+            if(item.getPowerConsumed()>=min&&item.getPowerConsumed()<=max){
+                tempList.add(item);
+            }
+        }
+        return tempList;
     }
+
+    public void show(){
+        view.showElectrikalAppliance(listElectricalApplianceAtHome);
+        view.showPowerConsumption(powerConsumption());
+        view.showSearch(search(min,max));
+    }
+
+
+
+
+
 }
 
 
