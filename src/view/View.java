@@ -22,8 +22,14 @@ public class View {
 
     public void showSearch(ArrayList<ElectricalAppliance> search){
         System.out.println("__________________________________________");
-        for(ElectricalAppliance item:search){
-            System.out.println("Found devices :" +item.getName() + " - "+item.getPowerConsumed());
+        if(search==null){
+            System.out.println("Ошибка!!!В диапазон не может быть значения меньше 0");
+        }
+        else {
+            System.out.println("Found in the range :");
+            for (ElectricalAppliance item : search) {
+                System.out.println("Found devices :" + item.getName() + " - " + item.getPowerConsumed());
+            }
         }
     }
 

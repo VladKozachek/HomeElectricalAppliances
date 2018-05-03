@@ -37,12 +37,18 @@ public class ControlllerElectricalAppliances {
     public ArrayList<ElectricalAppliance> search(int min,int max){ //поиск прибора в квартире, соответствующий заданному диапазону параметров
      this.min=min;
      this.max=max;
-        ArrayList<ElectricalAppliance> tempList=new ArrayList<>();
-        for (ElectricalAppliance item:listElectricalApplianceAtHome){
-            if(item.getPowerConsumed()>=min&&item.getPowerConsumed()<=max){
-                tempList.add(item);
-            }
-        }
+     ArrayList<ElectricalAppliance> tempList = new ArrayList<>();
+     if(min<0){
+         tempList=null;
+     }
+     else {
+         for (ElectricalAppliance item : listElectricalApplianceAtHome) {
+             if (item.getPowerConsumed() >= min && item.getPowerConsumed() <= max) {
+                 tempList.add(item);
+             }
+         }
+
+     }
         return tempList;
     }
 
